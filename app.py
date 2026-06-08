@@ -346,6 +346,9 @@ else:
 
                         st.markdown(f"📄 **{paper_name}** | Page: {page}")
 
+                        st.write("PDF:",pdf)
+                        st.write("Exists:", os.path.exists(pdf))
+
                         if os.path.exists(pdf):
 
                             with open(pdf, "rb") as f:
