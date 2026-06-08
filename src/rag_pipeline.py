@@ -8,7 +8,7 @@ llm = get_llm()
 def generate_answer(username, question):
 
     docs = retriever.invoke(question)
-
+    print("Retrieved docs:", len(docs))
     context = ""
     sources = []
 
