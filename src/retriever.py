@@ -7,7 +7,7 @@ PERSIST_DIR = "embeddings"
 def get_retriever():
 
     if not os.path.exists(PERSIST_DIR):
-        from ingest import ingest_documents
+        from src.ingest import ingest_documents
         ingest_documents()
 
     embeddings = HuggingFaceEmbeddings(
