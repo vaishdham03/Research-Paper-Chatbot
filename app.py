@@ -382,7 +382,7 @@ else:
         f"""
     <div style="
         text-align:center;
-        width: 10px;
+        width: 250px;
         margin-top:15px;
         margin-bottom:15px;
         background: rgba(255,255,255,0.08);
