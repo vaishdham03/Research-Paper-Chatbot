@@ -100,7 +100,45 @@ def set_background():
                 background-size: cover;
             }}
         }}
+     
+         /* =========================
+         GLASS SIDEBAR
+         ========================= */
 
+         section[data-testid="stSidebar"] {{
+            background: rgba(0, 0, 0, 0.25) !important;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+
+             border-right: 1px solid rgba(255,255,255,0.15);
+        }}
+
+        /* Sidebar text */
+        section[data-testid="stSidebar"] *{{
+            color: white !important;
+        }}
+
+        /* Sidebar buttons */
+        section[data-testid="stSidebar"] .stButton button {{
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white !important;
+            border-radius: 12px;
+        }}
+
+        /* Input boxes */
+        .stTextInput input {{
+            background: rgba(255,255,255,0.08) !important;
+            color: white !important;
+            border: 1px solid rgba(255,255,255,0.15) !important;
+        }}
+
+        /* Chat input */
+        .stTextInput label {{
+            color: white !important;
+        }}
+     
+     
         </style>
         """,
         unsafe_allow_html=True
