@@ -126,18 +126,9 @@ def set_background():
             border-radius: 12px;
         }}
 
-        /* Input boxes */
-        .stTextInput input {{
-            background: rgba(255,255,255,0.08) !important;
-            color: white !important;
-            border: 1px solid rgba(255,255,255,0.15) !important;
-        }}
+        
 
-        /* Chat input */
-        .stTextInput label {{
-            color: white !important;
-        }}
-     
+        
      
         </style>
         """,
