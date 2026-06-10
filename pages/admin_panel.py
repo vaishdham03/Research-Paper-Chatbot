@@ -247,6 +247,26 @@ with col2:
 
 st.markdown("---")
 
+uploaded_pdf = st.file_uploader(
+    "Upload Research Paper",
+    type=["pdf"]
+)
+
+if uploaded_pdf:
+
+    save_path = os.path.join("data", uploaded_pdf.name)
+
+    with open(save_path, "wb") as f:
+        f.write(uploaded_pdf.getbuffer())
+
+    st.success("PDF uploaded")
+
+    if st.button("🔄 Index Research Paper"):
+        with st.spinner("Creating embeddings..."):
+            ingest_documents()
+
+        st.success("Paper indexed successfully")
+
 # ---------------- SEARCH ----------------
 st.subheader("🔎 Search Panel")
 
