@@ -41,8 +41,8 @@ def set_background():
         .stApp {{
             background:
                 linear-gradient(
-                    rgba(0,0,0,0.55),
-                    rgba(0,0,0,0.65)
+                    rgba(0,0,0,0.80),
+                    rgba(0,0,0,0.80)
                 ),
                 url("data:image/jpg;base64,{encoded}");
 
@@ -57,13 +57,17 @@ def set_background():
         /* Titles */
         .main-title {{
             color: white !important;
-            text-shadow: 0px 2px 10px rgba(0,0,0,0.5);
+            font-weight: 800 !important;
         }}
 
         .sub-title {{
             color: white !important;
         }}
-
+ 
+        label, p, h1,h2, h3, h4, h5, h6 {{
+            color: white !important;
+        }}
+        
         /* Chat Area */
         .block-container {{
             padding-top: 2rem;
