@@ -1,4 +1,6 @@
 import streamlit as st
+import os
+from src.ingest import ingest_documents
 import pandas as pd
 import plotly.express as px
 
