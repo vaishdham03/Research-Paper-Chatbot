@@ -127,7 +127,12 @@ def set_background():
         }}
 
         
-
+        div[data-testid="stDownloadButton"] button {{
+           background: rgba(59,130,246,0.20) !important;
+           backdrop-filter: blur(20px) !important;
+           border: 1px solid rgba(255,255,255,0.25) !important;
+           color: white !important;
+        }}
         
      
         </style>
