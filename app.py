@@ -329,17 +329,19 @@ else:
         st.markdown(
             f"""
             <div style="
-              width:100px;
-              height:100px;
-              border-radius:50%;
-              background: linear-gradient(135deg, #374151, #6b7280);
-              display:flex;
-              align-items:center;
-              justify-content:center;
-              font-size:28px;
-              font-weight:bold;
-              color:white;
-              margin:auto;
+               width:120px;
+               height:120px;
+               border-radius:50%;
+               background: rgba(255,255,255,0.15);
+               backdrop-filter: blur(20px);
+               display:flex;
+               align-items:center;
+               justify-content:center;
+               margin:auto;
+               font-size:36px;
+               font-weight:bold;
+               color:white;
+               border:1px solid rgba(255,255,255,0.2);
             ">
                {initial}
             </div>
@@ -349,10 +351,18 @@ else:
 
     st.sidebar.markdown(
         f"""
-    <div style="text-align:center;margin-top:10px;">
-        <b>{username}</b>
+    <div style="
+        text-align:center;
+        margin-top:15px;
+        background: rgba(255,255,255,0.08);
+        backdrop-filter: blur(15px);
+        padding: 15px;
+        border-radius:15px;
+        border:1px solid rgba(255,255,255,0.15);
+    ">
+        <b style="color:white;">{username}</b>
         <br>
-        <span style="opacity:0.7;">Role: {st.session_state.role}</span>
+        <span style="color:white;">Role: {st.session_state.role}</span>
     </div>
     """,
         unsafe_allow_html=True,
