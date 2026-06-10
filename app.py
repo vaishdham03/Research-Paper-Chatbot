@@ -1,6 +1,6 @@
 import streamlit as st
 import os
-
+import base64
 from src.database import create_users_table, create_chat_table
 
 from src.auth import register_user, login_user
@@ -24,6 +24,100 @@ st.set_page_config(
     page_title="Research Insights Chatbot", page_icon="🧠", layout="wide"
 )
 
+# ==========================================================
+# RESPONSIVE BACKGROUND IMAGE
+# ==========================================================
+
+def set_background():
+
+    with open("assets/background.jpg", "rb") as image:
+        encoded = base64.b64encode(image.read()).decode()
+
+    st.markdown(
+        f"""
+        <style>
+
+        /* Full Background */
+        .stApp {{
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.55),
+                    rgba(0,0,0,0.65)
+                ),
+                url("data:image/jpg;base64,{encoded}");
+
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }}
+
+        /* Login Card */
+        .auth-card {{
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+
+            padding: 30px;
+            border-radius: 20px;
+
+            border: 1px solid rgba(255,255,255,0.15);
+
+            box-shadow:
+                0 8px 32px rgba(0,0,0,0.25);
+
+            color: white;
+        }}
+
+        /* Titles */
+        .main-title {{
+            color: white !important;
+            text-shadow: 0px 2px 10px rgba(0,0,0,0.5);
+        }}
+
+        .sub-title {{
+            color: white !important;
+        }}
+
+        /* Chat Area */
+        .block-container {{
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }}
+
+        /* Mobile Responsive */
+        @media (max-width:768px) {{
+
+            .main-title {{
+                font-size: 30px !important;
+            }}
+
+            .sub-title {{
+                font-size: 15px !important;
+            }}
+
+            .auth-card {{
+                padding: 20px !important;
+                border-radius: 15px !important;
+            }}
+
+            .block-container {{
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }}
+
+            .stApp {{
+                background-position: center;
+                background-size: cover;
+            }}
+        }}
+
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+set_background()
 
 # ==========================================================
 # SESSION STATE
