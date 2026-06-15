@@ -2,9 +2,8 @@ import streamlit as st
 import os
 import base64
 from src.database import create_users_table, create_chat_table
-
+from streamlit_pdf_viewer import pdf_viewer
 from src.auth import register_user, login_user
-
 from src.rag_pipeline import generate_answer
 from src.memory import add_message
 
@@ -476,18 +475,33 @@ else:
                         st.markdown(f"📄 **{paper_name}** | Page: {page}")
 
                         st.write("PDF:",pdf)
-                        st.write("Exists:", os.path.exists(pdf))
+                        #st.write("Exists:", os.path.exists(pdf))
 
                         if os.path.exists(pdf):
-
-                            with open(pdf, "rb") as f:
-
-                                st.download_button(
-                                    label="📥 Download PDF",
-                                    data=f,
-                                    file_name=paper,
-                                    mime="application/pdf",
-                                )
+                            
+                            col1, col2 = st.columns([1, 1])
+                            
+                            with col1: 
+                                 with open(pdf, "rb") as f:
+                                    st.download_button(
+                                        label="📥 Download PDF",
+                                        data=f,
+                                        file_name=paper,
+                                        mime="application/pdf",
+                                        key=f"download_{paper}"
+                                    )
+                                
+                                #View pdf inside app
+                            with col2:
+                                if st.button(
+                                   "View Paper",
+                                   key=f"view_{paper}" 
+                                ):
+                                    pdf_viewer(
+                                       pdf,
+                                       width=900,
+                                       height=700
+                                    )
 
                         st.markdown("---")
 
